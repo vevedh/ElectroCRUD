@@ -1,0 +1,119 @@
+@import '~@nebular/theme/styles/theming';
+@import '~@nebular/theme/styles/themes/cosmic';
+
+$nb-themes: nb-register-theme((
+
+  // add your variables here like:
+
+  // color-primary-100: #f2f6ff,
+  // color-primary-200: #d9e4ff,
+  // color-primary-300: #a6c1ff,
+  // color-primary-400: #598bff,
+  // color-primary-500: #3366ff,
+  // color-primary-600: #274bdb,
+  // color-primary-700: #1a34b8,
+  // color-primary-800: #102694,
+  // color-primary-900: #091c7a,
+
+  text-button-font-weight: 600
+
+), cosmic, cosmic);
+
+@mixin input-ng-valid-status($sub-class: "") {
+  $ng-form-valid-status: ("valid": "success", "invalid": "danger");
+  @each $ngs, $status in $ng-form-valid-status {
+    &:not([ng-reflect-disabled]).ng-#{$ngs} #{$sub-class} {
+      border-color: nb-theme(input-#{$status}-border-color);
+      &:focus {
+        border-color: nb-theme(input-#{$status}-hover-border-color);
+      }
+      &:hover {
+        border-color: nb-theme(input-#{$status}-focus-border-color);
+      }
+    }
+  }
+}
+
+::ng-deep
+[formcontrolname] {
+  @include input-ng-valid-status(".select-button");
+}
+
+::ng-deep
+[formcontrolname] {
+  @include input-ng-valid-status();
+}
+
+::ng-deep
+.nb-theme-cosmic nb-layout.with-scroll .scrollable-container {
+  height: auto !important;
+}
+
+.float-right {
+  float: right
+}
+
+.nb-theme-default .nb-theme-default [nbButton] nb-nb-icon {
+  font-size: 1rem;
+}
+
+.input-group {
+  display: flex;
+}
+
+.margin-bottom-0-5-rem {
+  margin-bottom: 0.5rem;
+}
+
+.margin-bottom-1-rem {
+  margin-bottom: 1rem;
+}
+
+.padding-0 {
+  padding: 0px !important;
+}
+
+.padding-left-0 {
+  padding-left: 0px !important;
+}
+
+.margin-left-0 {
+  margin-left: 0px !important;
+}
+
+.margin-0 {
+  margin: 0px !important;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.margin-auto-0 {
+  margin: auto 0;
+}
+
+.margin-auto-1rem-auto-0rem {
+  margin: auto 1rem auto 0rem;
+}
+
+.margin-0-0-0-auto {
+  margin: 0 0 0 auto;
+}
+
+.padding-right-1-rem
+{
+  padding-right: 1rem !important;
+}
+
+.margin-right-0-5-rem {
+  margin-right: 0.5rem;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.padding-1-rem {
+  padding: 1rem !important;
+}
